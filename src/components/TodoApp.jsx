@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import TodoList from "./components/TodoList";
-import AddTodoForm from "./components/AddTodoForm";
-import WeatherApp from "./components/WeatherApp";
-import Smile from "./components/Smile";
+import TodoList from "./TodoList";
+import AddTodoForm from "./AddTodoForm";
 
 const initialTodos = [
   { id: uuidv4(), title: "Learn React", completed: false },
@@ -39,7 +36,7 @@ const TodoApp = () => {
   };
 
   const handleAddTodo = () => {
-    if (inputValue === "") return; // Prevent adding empty todos
+    if (inputValue === "") return;
     const newTodo = {
       id: uuidv4(),
       title: inputValue,
@@ -67,15 +64,4 @@ const TodoApp = () => {
   );
 };
 
-const App = () => (
-  <Router>
-    <Routes>
-      <Route path="/todo" element={<TodoApp />} />
-      {/* Here, you can also add a component for the "/weather" route in the same manner. */}
-      <Route path="/weather" element={<WeatherApp />} />
-      <Route path="/smile" element={<Smile />} />
-    </Routes>
-  </Router>
-);
-
-export default App;
+export default TodoApp;
